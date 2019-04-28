@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "14901149956",
+    "firebase_url": "https://mobpro-tischfussball.firebaseio.com",
+    "project_id": "mobpro-tischfussball",
+    "storage_bucket": "mobpro-tischfussball.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14901149956:android:7c95e0c6c96da0dd",
+        "android_client_info": {
+          "package_name": "ch.hslu.pablo.hslu_tggelichampion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14901149956-g23el8brh8afiqq37nr1399riq3pj8s5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ch.hslu.pablo.hslu_tggelichampion",
+            "certificate_hash": "32921943665b1c78551142ef1f34c2540d6950b2"
+          }
+        },
+        {
+          "client_id": "14901149956-kuhkqa3qt8vj99pvmjd05proqvhhj0lc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeLQMaPGjpt3HymajWOVdwzbar4TTbVSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14901149956-kuhkqa3qt8vj99pvmjd05proqvhhj0lc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14901149956:android:2c3e0a57b4508c06",
+        "android_client_info": {
+          "package_name": "com.example.toggeli_champion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14901149956-sp58qr27rblmip49nrdu30v8n1f28hc5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.toggeli_champion",
+            "certificate_hash": "571ecc10ad8cbd398133ef2fd02cd6bf4476c1e4"
+          }
+        },
+        {
+          "client_id": "14901149956-kuhkqa3qt8vj99pvmjd05proqvhhj0lc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeLQMaPGjpt3HymajWOVdwzbar4TTbVSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14901149956-kuhkqa3qt8vj99pvmjd05proqvhhj0lc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -20,7 +20,34 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
+            <TextView
+                android:layout_height="wrap_content"
+                android:id="@+id/eMail"
+                android:text="Platz"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:textSize="14sp"
+                android:textStyle="normal|bold" />
 
+            <TextView
+                android:layout_height="wrap_content"
+                android:id="@+id/gewonnen"
+                android:text="Platz"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:textSize="14sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:id="@+id/verloren"
+                android:text="Platz"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:textSize="14sp"
+                android:textStyle="normal|bold" />
+
+            <!--
             <TextView
                 android:layout_height="wrap_content"
                 android:id="@+id/kartenname"
@@ -53,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/aktiviert"
                 android:textStyle="normal|bold" />
+                -->
 
         </TableRow>
 
