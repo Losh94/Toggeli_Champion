@@ -53,7 +53,6 @@ public class Rangliste extends Activity {
     }
 
     private void getData() {
-        final ArrayMap<Integer, String[]> tempMap = new ArrayMap<>();
         db.collection("Rangliste")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -69,7 +68,6 @@ public class Rangliste extends Activity {
                                     a++;
                                 }
                                 createTableRow(hilfArray, i);
-                                tempMap.put(i, hilfArray);
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 i++;
 
@@ -85,13 +83,12 @@ public class Rangliste extends Activity {
     private void createTableRow(String[] hilfArray, int id) {
         TableLayout table = (TableLayout)findViewById(R.id.tableLayout);
         TableRow row = new TableRow(Rangliste.this);
-        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-        row.setLayoutParams(layoutParams);
-        row.setWeightSum(10);
+        //TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        //row.setLayoutParams(layoutParams);
         row.setGravity(Gravity.CENTER);
 
         TextView tv1 = new TextView(this);
-        //tv1.setLayoutParams(new TableLayout.LayoutParams(0 , LayoutParams.WRAP_CONTENT, 4));
+        //tv1.setLayoutParams(new TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT , LayoutParams.WRAP_CONTENT));
         tv1.setPadding(2, 2, 2, 2);
         tv1.setGravity(Gravity.CENTER);
         tv1.setText(hilfArray[0]);
@@ -103,14 +100,14 @@ public class Rangliste extends Activity {
         tv2.setText(hilfArray[1]);
 
         TextView tv3 = new TextView(this);
-        //tv3.setLayoutParams(new TableLayout.LayoutParams(0 , LayoutParams.WRAP_CONTENT, 2));
+        tv3.setLayoutParams(new TableLayout.LayoutParams(0 , LayoutParams.WRAP_CONTENT, 2));
         tv3.setPadding(2, 2, 2, 2);
         tv3.setGravity(Gravity.CENTER);
         tv3.setText(hilfArray[2]);
 
         Button button = new Button(this);
-        //button.setLayoutParams(new TableLayout.LayoutParams(0 , LayoutParams.WRAP_CONTENT, 2));
-        button.setPadding(2, 2, 2, 2);
+        //button.setLayoutParams(new TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT , LayoutParams.WRAP_CONTENT, 5));
+        //button.setPadding(2, 2, 2, 2);
         button.setGravity(Gravity.CENTER);
         button.setId(id);
         button.setText("Challenge");
