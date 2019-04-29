@@ -2,8 +2,6 @@ package com.example.toggeli_champion;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,11 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.MediaController;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,15 +18,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class TippsundTricks extends Activity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private FirebaseAuth mAuth;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_tippsundtricks);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,14 +41,13 @@ public class TippsundTricks extends Activity implements NavigationView.OnNavigat
 
             Intent start = new Intent(TippsundTricks.this, MainActivity.class);
             startActivity(start);
-
         } else if (id == R.id.newGame) {
 
             Intent startNewGame = new Intent(TippsundTricks.this, TippsundTricks.class);
             startActivity(startNewGame);
 
 
-        } else if (id == R.id.rangliste) {
+        } else if (id == R.id.Rangliste) {
             Intent startRangliste = new Intent(TippsundTricks.this, Rangliste.class);
             startActivity(startRangliste);
 
@@ -67,13 +56,7 @@ public class TippsundTricks extends Activity implements NavigationView.OnNavigat
             Intent startNewGame = new Intent(TippsundTricks.this, Forum.class);
             startActivity(startNewGame);
 
-        } else if (id == R.id.Logout){
-            mAuth.signOut();
-            Intent start = new Intent(TippsundTricks.this, MainActivity.class);
-            startActivity(start);
-        } else if (id == R.id.spielBerichte){
-            Intent startSpielBerichte = new Intent(TippsundTricks.this, MatchReports.class);
-            startActivity(startSpielBerichte);
+        } else if(id == R.id.TippsundTricks){
 
         }
 
@@ -115,5 +98,4 @@ public class TippsundTricks extends Activity implements NavigationView.OnNavigat
         textView.setText(text);
         linearLayout.addView(textView);
     }
-
 }
