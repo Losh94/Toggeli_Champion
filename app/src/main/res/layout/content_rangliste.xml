@@ -20,67 +20,77 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
+
             <TextView
-                android:layout_height="wrap_content"
                 android:id="@+id/eMail"
-                android:text="Platz"
                 android:layout_width="0dp"
-                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="E-Mail"
                 android:textSize="14sp"
                 android:textStyle="normal|bold" />
 
             <TextView
                 android:layout_height="wrap_content"
                 android:id="@+id/gewonnen"
-                android:text="Platz"
+                android:text="Gewonnen"
                 android:layout_width="0dp"
-                android:layout_weight="0.4"
+                android:layout_weight="2"
                 android:textSize="14sp"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"/>
 
             <TextView
-                android:layout_height="wrap_content"
-                android:id="@+id/verloren"
-                android:text="Platz"
-                android:layout_width="0dp"
-                android:layout_weight="0.4"
-                android:textSize="14sp"
-                android:textStyle="normal|bold" />
+            android:layout_height="wrap_content"
+            android:id="@+id/verloren"
+            android:text="Verloren"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:textSize="14sp"
+            android:textStyle="normal|bold" />
 
-            <!--
-            <TextView
-                android:layout_height="wrap_content"
-                android:id="@+id/kartenname"
-                android:text="Platz"
-                android:layout_width="0dp"
-                android:layout_weight="0.4"
-                android:textSize="14sp"
-                android:textStyle="normal|bold" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:id="@+id/herausforderung"
+            android:text="Herausfoderung"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textStyle="normal|bold" />
 
-            <TextView
-                android:text="Name"
-                android:layout_width="0dp"
-                android:layout_weight="0.15"
-                android:layout_height="wrap_content"
-                android:id="@+id/anzahl"
-                android:textStyle="normal|bold" />
+        <!--
+        <TextView
+            android:layout_height="wrap_content"
+            android:id="@+id/kartenname"
+            android:text="Platz"
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:textSize="14sp"
+            android:textStyle="normal|bold" />
 
-            <TextView
-                android:text="Punkte"
-                android:layout_width="0dp"
-                android:layout_weight="0.15"
-                android:layout_height="wrap_content"
-                android:id="@+id/punkte"
-                android:textStyle="normal|bold" />
+        <TextView
+            android:text="Name"
+            android:layout_width="0dp"
+            android:layout_weight="0.15"
+            android:layout_height="wrap_content"
+            android:id="@+id/anzahl"
+            android:textStyle="normal|bold" />
 
-            <TextView
-                android:text="Herausforderung"
-                android:layout_width="0dp"
-                android:layout_weight="0.13"
-                android:layout_height="wrap_content"
-                android:id="@+id/aktiviert"
-                android:textStyle="normal|bold" />
-                -->
+        <TextView
+            android:text="Punkte"
+            android:layout_width="0dp"
+            android:layout_weight="0.15"
+            android:layout_height="wrap_content"
+            android:id="@+id/punkte"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text="Herausforderung"
+            android:layout_width="0dp"
+            android:layout_weight="0.13"
+            android:layout_height="wrap_content"
+            android:id="@+id/aktiviert"
+            android:textStyle="normal|bold" />
+            -->
 
         </TableRow>
 
