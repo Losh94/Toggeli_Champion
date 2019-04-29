@@ -8,6 +8,16 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 public class TippsundTricks extends Activity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -55,5 +65,37 @@ public class TippsundTricks extends Activity implements NavigationView.OnNavigat
         return true;
     }
 
+    public void sendHttp(View view) {
 
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="https://pastebin.com/raw/XpksFvdd";
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+                        setTextView(response.substring(0));
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                setTextView("That didn't work!");
+            }
+        });
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+    }
+
+    private void setTextView(String text) {
+        LinearLayout linearLayout = new LinearLayout(TippsundTricks.this);
+        setContentView(linearLayout);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        TextView textView = new TextView(TippsundTricks.this);
+        textView.setText(text);
+        linearLayout.addView(textView);
+    }
 }
