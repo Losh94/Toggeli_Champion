@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(startNewGame);
 
 
-        } else if (id == R.id.Rangliste) {
+        } else if (id == R.id.rangliste) {
             Intent startRangliste = new Intent(MainActivity.this, Rangliste.class);
             startActivity(startRangliste);
 
@@ -109,7 +109,10 @@ public class MainActivity extends AppCompatActivity
             Intent startNewGame = new Intent(MainActivity.this, TippsundTricks.class);
             startActivity(startNewGame);
 
-        }
+        } /** else if (id == R.id.Logout){
+            mAuth.signOut();
+            onStart();
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -203,4 +206,6 @@ public class MainActivity extends AppCompatActivity
                     }
                 });
     }
+
+
 }

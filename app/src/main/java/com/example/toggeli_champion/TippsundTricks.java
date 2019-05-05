@@ -41,13 +41,14 @@ public class TippsundTricks extends Activity implements NavigationView.OnNavigat
 
             Intent start = new Intent(TippsundTricks.this, MainActivity.class);
             startActivity(start);
+
         } else if (id == R.id.newGame) {
 
             Intent startNewGame = new Intent(TippsundTricks.this, TippsundTricks.class);
             startActivity(startNewGame);
 
 
-        } else if (id == R.id.Rangliste) {
+        } else if (id == R.id.rangliste) {
             Intent startRangliste = new Intent(TippsundTricks.this, Rangliste.class);
             startActivity(startRangliste);
 
