@@ -8,7 +8,7 @@
     tools:context=".NewGame"
     tools:showIn="@layout/app_bar_newgame">
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints">
 
@@ -47,12 +47,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/radio_two"
+                    android:onClick="disablePlayerTwo"
                     />
                 <RadioButton
                     android:id="@+id/radiofour"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/radio_four"
+                    android:onClick="enablePlayerTwo"
                     />
                 </RadioGroup>
             </TableRow>
@@ -96,18 +98,21 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
+
                 <TextView
-                    android:layout_height="wrap_content"
                     android:id="@+id/teamoneplayerone"
-                    android:text="Spieler 1"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.4"
+                    android:text="Spieler 1"
                     android:textSize="14sp"
                     android:textStyle="normal|bold" />
+
                 <EditText
                     android:id="@+id/teamoneplayeronename"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
                     tools:layout_editor_absoluteX="40dp"
@@ -117,20 +122,24 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/t1_p2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
+
                 <TextView
-                    android:layout_height="wrap_content"
                     android:id="@+id/teamoneplayertwo"
-                    android:text="Spieler 2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.4"
+                    android:text="Spieler 2"
                     android:textSize="14sp"
                     android:textStyle="normal|bold" />
+
                 <EditText
                     android:id="@+id/teamoneplayertwoname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
                     tools:layout_editor_absoluteX="40dp"
@@ -168,10 +177,12 @@
                     android:layout_weight="0.4"
                     android:textSize="14sp"
                     android:textStyle="normal|bold" />
+
                 <EditText
                     android:id="@+id/teamtwoplayeronename"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
                     tools:layout_editor_absoluteX="40dp"
@@ -181,6 +192,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/t2_p2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
                 <TextView
@@ -191,10 +203,12 @@
                     android:layout_weight="0.4"
                     android:textSize="14sp"
                     android:textStyle="normal|bold" />
+
                 <EditText
                     android:id="@+id/teamtwoplayertwoname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
                     tools:layout_editor_absoluteX="40dp"
@@ -232,10 +246,12 @@
                     android:layout_weight="0.4"
                     android:textSize="14sp"
                     android:textStyle="normal|bold" />
+
                 <EditText
                     android:id="@+id/resultone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
                     tools:layout_editor_absoluteX="40dp"
@@ -255,10 +271,12 @@
                     android:layout_weight="0.4"
                     android:textSize="14sp"
                     android:textStyle="normal|bold" />
+
                 <EditText
                     android:id="@+id/resulttwo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
                     tools:layout_editor_absoluteX="40dp"
@@ -270,20 +288,22 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <Button
                     android:id="@+id/sumbit_newgame"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textAlignment="center"
+                    android:text="Bestätigen"
+                    android:onClick="onClickSave"
 
-                    android:text="Speichern" />
+                    android:textAlignment="center" />
 
                 <Button
                     android:id="@+id/abbrechen"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textAlignment="center"
-
+                    android:onClick="closeActivity"
                     android:text="Abbrechen" />
             </TableRow>
 

@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
+        //mAuth.signOut();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             setContentView(R.layout.activity_main);
@@ -66,6 +67,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Intent intent = new Intent(MainActivity.this, ChallengerService.class);
+        startService(intent);
     }
 
     @Override
@@ -122,7 +126,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void initializeNewGameButton(View view) {
-        Intent startNewGame = new Intent(MainActivity.this, NewGame.class);
+        Intent startNewGame = new Intent(MainActivity.this, MatchReports.class);
         startActivity(startNewGame);
     }
 
