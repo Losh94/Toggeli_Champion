@@ -50,7 +50,7 @@ public class Forum extends Activity implements NavigationView.OnNavigationItemSe
             startActivity(startStart);
 
         } else if (id == R.id.newGame) {
-            Intent startNewGame = new Intent(Forum.this, NewGame.class);
+            Intent startNewGame = new Intent(Forum.this, MatchReports.class);
             startActivity(startNewGame);
 
 

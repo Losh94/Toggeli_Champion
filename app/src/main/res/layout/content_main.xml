@@ -32,7 +32,7 @@
                 android:layout_height="120dp"
 
 
-                android:text="Spiel erfassen" />
+                android:text="Spielberichte" />
 
 
             <Button

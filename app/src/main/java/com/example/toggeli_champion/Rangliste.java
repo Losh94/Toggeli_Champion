@@ -29,13 +29,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.ServerTimestamp;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -152,6 +157,7 @@ public class Rangliste extends Activity  implements NavigationView.OnNavigationI
                 String[] dataSplit = data.split(":");
                 challenge.put("Herausforderer", dataSplit[0]);
                 challenge.put("Ziel", dataSplit[1]);
+                challenge.put("Timestamp", Timestamp.now());
 
                 db.collection("Herausforderungen").document()
                         .set(challenge)
