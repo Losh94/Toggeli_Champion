@@ -12,10 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Forum extends Activity implements NavigationView.OnNavigationItemSelectedListener {
+    private FirebaseAuth mAuth;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_forum);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -42,6 +46,8 @@ public class Forum extends Activity implements NavigationView.OnNavigationItemSe
         int id = item.getItemId();
 
         if (id == R.id.Start) {
+            Intent startStart = new Intent(Forum.this, MainActivity.class);
+            startActivity(startStart);
 
         } else if (id == R.id.newGame) {
             Intent startNewGame = new Intent(Forum.this, NewGame.class);
@@ -53,14 +59,14 @@ public class Forum extends Activity implements NavigationView.OnNavigationItemSe
             startActivity(startRangliste);
 
 
-        } else if (id == R.id.Forum) {
-            Intent startNewGame = new Intent(Forum.this, Forum.class);
-            startActivity(startNewGame);
+        }else if(id == R.id.TippsundTricks){
+            Intent startTippsundTricks = new Intent(Forum.this, TippsundTricks.class);
+            startActivity(startTippsundTricks);
 
-        } else if(id == R.id.TippsundTricks){
-            Intent startNewGame = new Intent(Forum.this, TippsundTricks.class);
-            startActivity(startNewGame);
-
+        } else if (id == R.id.Logout){
+            mAuth.signOut();
+            Intent start = new Intent(Forum.this, MainActivity.class);
+            startActivity(start);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

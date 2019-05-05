@@ -2,16 +2,20 @@ package com.example.toggeli_champion;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.ArrayMap;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -36,7 +40,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Rangliste extends Activity {
+public class Rangliste extends Activity  implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth mAuth;
     FirebaseFirestore db;
     private static final String TAG = "Rangliste";
@@ -176,4 +180,37 @@ public class Rangliste extends Activity {
         }
     }
 
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.Start) {
+
+            Intent start = new Intent(Rangliste.this, MainActivity.class);
+            startActivity(start);
+
+        }  else if (id == R.id.NewGame) {
+            Intent startNewGame = new Intent(Rangliste.this, NewGame.class);
+            startActivity(startNewGame);
+
+
+        } else if (id == R.id.Forum) {
+            Intent startForum = new Intent(Rangliste.this, Forum.class);
+            startActivity(startForum);
+
+        } else if(id == R.id.TippsundTricks){
+            Intent startTippsundTricks = new Intent(Rangliste.this, TippsundTricks.class);
+            startActivity(startTippsundTricks);
+
+        } else if (id == R.id.Logout){
+            mAuth.signOut();
+            Intent start = new Intent(Rangliste.this, MainActivity.class);
+            startActivity(start);
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }

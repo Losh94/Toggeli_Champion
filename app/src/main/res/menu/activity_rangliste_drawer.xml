@@ -14,17 +14,16 @@
             android:title="Neues Spiel erfassen" />
         <item
             android:onClick="onNavigationItemSelected"
-            android:id="@+id/Rangliste"
-            android:title="Rangliste" />
-        <item
-            android:onClick="onNavigationItemSelected"
             android:id="@+id/Forum"
             android:title="Forum" />
-
         <item
             android:onClick="onNavigationItemSelected"
             android:id="@+id/TippsundTricks"
             android:title="Tipps und Tricks" />
+        <item
+            android:onClick="onNavigationItemSelected"
+            android:id="@+id/Logout"
+            android:title="Logout"/>
     </group>
 
 

@@ -94,28 +94,35 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.newGame) {
             Intent startNewGame = new Intent(MainActivity.this, NewGame.class);
             startActivity(startNewGame);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
 
 
         } else if (id == R.id.rangliste) {
             Intent startRangliste = new Intent(MainActivity.this, Rangliste.class);
             startActivity(startRangliste);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
 
 
         } else if (id == R.id.Forum) {
             Intent startNewGame = new Intent(MainActivity.this, Forum.class);
             startActivity(startNewGame);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
 
         } else if(id == R.id.TippsundTricks){
             Intent startNewGame = new Intent(MainActivity.this, TippsundTricks.class);
             startActivity(startNewGame);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
 
-        } /** else if (id == R.id.Logout){
+        }  else if (id == R.id.Logout){
             mAuth.signOut();
-            onStart();
-        }*/
+            setContentView(R.layout.login_panel);
+        }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 
