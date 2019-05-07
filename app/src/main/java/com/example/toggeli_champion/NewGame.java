@@ -25,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NewGame extends Activity {
+public class NewGame extends Activity   implements NavigationView.OnNavigationItemSelectedListener{
 
     FirebaseFirestore db;
     private static final String TAG = "NewGame";
@@ -36,9 +36,9 @@ public class NewGame extends Activity {
         db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_newgame);
         createEmptyDataBaseEntry();
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     }
 
     private void createEmptyDataBaseEntry() {
@@ -147,7 +147,7 @@ public class NewGame extends Activity {
 
 
 
-    /*@Override
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
@@ -178,7 +178,7 @@ public class NewGame extends Activity {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }*/
+    }
 
 
 }

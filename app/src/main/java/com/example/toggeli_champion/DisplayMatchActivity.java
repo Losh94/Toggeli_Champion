@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,7 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class DisplayMatchActivity extends Activity {
+public class DisplayMatchActivity extends Activity implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
     FirebaseFirestore db;
@@ -31,9 +34,12 @@ public class DisplayMatchActivity extends Activity {
         setContentView(R.layout.activity_newgame);
         Bundle extras = getIntent().getExtras();
         getData(extras.getString("documentName"));
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+       NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+    }
+
+    private void setSupportActionBar(Toolbar toolbar) {
     }
 
     private void getData(String documentName) {
@@ -76,5 +82,10 @@ public class DisplayMatchActivity extends Activity {
         t1result.setText(document.getString("t1score"));
         EditText t2result = (EditText) findViewById(R.id.resulttwo);
         t2result.setText(document.getString("t2score"));
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return false;
     }
 }
