@@ -59,7 +59,7 @@ public class MatchReports extends Activity implements NavigationView.OnNavigatio
                                 if(task.isSuccessful()) {
                                     Log.d(TAG, "Query Successful");
                                     for (QueryDocumentSnapshot document : task.getResult()) {
-                                        createButton(id, document.getString("t1p1"), document.getString("t2p1"), document.getId());
+                                        createButton(id, document);
                                         id++;
                                     }
                                 }
@@ -68,16 +68,16 @@ public class MatchReports extends Activity implements NavigationView.OnNavigatio
             }
     }
 
-    private void createButton(int id, String player1, String player2, String document) {
+    private void createButton(int id, QueryDocumentSnapshot document) {
         // Find the ScrollView
         ScrollView scrollView = (ScrollView) findViewById(R.id.match_report_scrollview);
 
         // Create a LinearLayout element
-        LinearLayout linearLayout = new LinearLayout(this);//(LinearLayout) findViewById(R.id.match_report_listview);
-        linearLayout.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
-        linearLayout.removeAllViews();
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.match_report_linearview);
+        //linearLayout.setLayoutParams(new ViewGroup.LayoutParams(
+                //ViewGroup.LayoutParams.MATCH_PARENT,
+                //ViewGroup.LayoutParams.WRAP_CONTENT));
+        //linearLayout.removeAllViews();
 
         // Add Buttons
         final RelativeLayout.LayoutParams buttonLayout = new RelativeLayout.LayoutParams(
@@ -86,18 +86,26 @@ public class MatchReports extends Activity implements NavigationView.OnNavigatio
 
         Button button = new Button(this);
         button.setId(id);
-        button.setText(player1 + "\n" + player2);
+        button.setText(document.getString("t1p1") + "\n" + document.getString("t2p1"));
         button.setLayoutParams(buttonLayout);
         linearLayout.addView(button);
 
         // Add the LinearLayout element to the ScrollView
+        scrollView.removeAllViews();
         scrollView.addView(linearLayout);
 
         Button btn = (Button) findViewById(id);
         btn.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MatchReports.this, DisplayMatchActivity.class);
-                intent.putExtra("documentName", document);
+                intent.putExtra("documentName", document.getId());
+                if (document.getBoolean("Bestaetigtt1") != null && document.getBoolean("Bestaetigtt2") != null) {
+                    if ((document.getBoolean("Bestaetigtt1") && document.getBoolean("Bestaetigtt2")) || document.getString("t1p1").equals(mAuth.getCurrentUser().getEmail())) {
+                        intent.putExtra("ButtonVisibility", false);
+                    } else {
+                        intent.putExtra("ButtonVisibility", true);
+                    }
+                }
                 startActivity(intent);
             }
         });

@@ -80,6 +80,7 @@ public class ChallengerService extends Service {
                                                 dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                                 //Log.d(TAG, document.getString("Herausforderer"));
                                                 dialogIntent.putExtra("challenger", document.getString("Herausforderer"));
+                                                dialogIntent.putExtra("ziel", mAuth.getCurrentUser().getEmail());
                                                 dialogIntent.putExtra("documentid", document.getId());
                                                 startActivity(dialogIntent);
                                             }

@@ -17,7 +17,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
             tools:ignore="MissingConstraints">
+            <LinearLayout
+                android:id="@+id/match_report_linearview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
+            </LinearLayout>
 
 
         </ScrollView>
