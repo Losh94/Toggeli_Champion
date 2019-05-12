@@ -114,17 +114,22 @@ public class MatchReports extends Activity implements NavigationView.OnNavigatio
     private void setSupportActionBar(Toolbar toolbar) {
 
     }
+
+    public void initializeNewGameButton(View view) {
+        Intent startNewGame = new Intent(MatchReports.this, NewGame.class);
+        startActivity(startNewGame);
+    }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.Start) {
+            Intent startStart = new Intent(MatchReports.this, MainActivity.class);
+            startActivity(startStart);
 
-            Intent start = new Intent(MatchReports.this, MainActivity.class);
-            startActivity(start);
         } else if (id == R.id.newGame) {
-
             Intent startNewGame = new Intent(MatchReports.this, MatchReports.class);
             startActivity(startNewGame);
 
@@ -134,12 +139,14 @@ public class MatchReports extends Activity implements NavigationView.OnNavigatio
             startActivity(startRangliste);
 
 
-        } else if (id == R.id.Forum) {
-            Intent startNewGame = new Intent(MatchReports.this, Forum.class);
-            startActivity(startNewGame);
+        }else if(id == R.id.TippsundTricks){
+            Intent startTippsundTricks = new Intent(MatchReports.this, TippsundTricks.class);
+            startActivity(startTippsundTricks);
 
-        } else if(id == R.id.TippsundTricks){
-
+        } else if (id == R.id.Logout){
+            mAuth.signOut();
+            Intent start = new Intent(MatchReports.this, MainActivity.class);
+            startActivity(start);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

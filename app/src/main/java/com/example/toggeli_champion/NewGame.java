@@ -40,8 +40,6 @@ public class NewGame extends Activity implements NavigationView.OnNavigationItem
         mauth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_newgame);
-        challenger = getIntent().getExtras().getString("challenger");
-        ziel = getIntent().getExtras().getString("ziel");
         setPlayerOne();
         createEmptyDataBaseEntry();
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -175,11 +173,10 @@ public class NewGame extends Activity implements NavigationView.OnNavigationItem
         int id = item.getItemId();
 
         if (id == R.id.Start) {
+            Intent startStart = new Intent(NewGame.this, MainActivity.class);
+            startActivity(startStart);
 
-            Intent start = new Intent(NewGame.this, MainActivity.class);
-            startActivity(start);
         } else if (id == R.id.newGame) {
-
             Intent startNewGame = new Intent(NewGame.this, MatchReports.class);
             startActivity(startNewGame);
 
@@ -189,13 +186,14 @@ public class NewGame extends Activity implements NavigationView.OnNavigationItem
             startActivity(startRangliste);
 
 
-        } else if (id == R.id.Forum) {
-            Intent startNewGame = new Intent(NewGame.this, Forum.class);
-            startActivity(startNewGame);
+        }else if(id == R.id.TippsundTricks){
+            Intent startTippsundTricks = new Intent(NewGame.this, TippsundTricks.class);
+            startActivity(startTippsundTricks);
 
-        } else if(id == R.id.TippsundTricks){
-            Intent startTipps = new Intent(NewGame.this, TippsundTricks.class);
-            startActivity(startTipps);
+        } else if (id == R.id.Logout){
+            mauth.signOut();
+            Intent start = new Intent(NewGame.this, MainActivity.class);
+            startActivity(start);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
