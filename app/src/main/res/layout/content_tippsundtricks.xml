@@ -26,6 +26,14 @@
             android:text="Regeln" />
 
 
+        <Button
+            android:onClick="sendHttp"
+            android:id="@+id/Regeln"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:textAlignment="center"
+
+            android:text="Regeln" />
     </LinearLayout>
 
 
