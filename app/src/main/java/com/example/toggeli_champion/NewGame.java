@@ -139,9 +139,6 @@ public class NewGame extends Activity implements NavigationView.OnNavigationItem
         finish();
     }
 
-    private void createDataBaseEntry() {
-    }
-
     public void disablePlayerTwo(View view) {
         TableRow tr1 = (TableRow)findViewById(R.id.t1_p2);
         TableRow tr2 = (TableRow)findViewById(R.id.t2_p2);

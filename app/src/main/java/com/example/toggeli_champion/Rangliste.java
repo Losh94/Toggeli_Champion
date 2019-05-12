@@ -32,6 +32,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.ServerTimestamp;
@@ -57,12 +58,14 @@ public class Rangliste extends Activity  implements NavigationView.OnNavigationI
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
         getData();
         setContentView(R.layout.activity_rangliste);
     }
 
     private void getData() {
         db.collection("Rangliste")
+                .orderBy("Gewonnen", Query.Direction.DESCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -109,7 +112,7 @@ public class Rangliste extends Activity  implements NavigationView.OnNavigationI
         tv2.setText(hilfArray[1]);
 
         TextView tv3 = new TextView(this);
-        tv3.setLayoutParams(new TableLayout.LayoutParams(0 , LayoutParams.WRAP_CONTENT, 2));
+        //tv3.setLayoutParams(new TableLayout.LayoutParams(0 , LayoutParams.WRAP_CONTENT, 2));
         tv3.setPadding(2, 2, 2, 2);
         tv3.setGravity(Gravity.CENTER);
         tv3.setText(hilfArray[2]);
