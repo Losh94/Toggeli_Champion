@@ -10,6 +10,10 @@
             android:title="Start" />
         <item
             android:onClick="onNavigationItemSelected"
+            android:id="@+id/newGame"
+            android:title="Neues Spiel erfassen" />
+        <item
+            android:onClick="onNavigationItemSelected"
             android:id="@+id/Rangliste"
             android:title="Rangliste" />
         <item

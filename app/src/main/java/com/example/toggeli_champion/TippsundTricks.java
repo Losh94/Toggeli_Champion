@@ -71,6 +71,10 @@ public class TippsundTricks extends Activity implements NavigationView.OnNavigat
             mAuth.signOut();
             Intent start = new Intent(TippsundTricks.this, MainActivity.class);
             startActivity(start);
+        } else if (id == R.id.spielBerichte){
+            Intent startSpielBerichte = new Intent(TippsundTricks.this, MatchReports.class);
+            startActivity(startSpielBerichte);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

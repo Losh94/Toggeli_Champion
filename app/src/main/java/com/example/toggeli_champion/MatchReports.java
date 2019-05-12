@@ -130,7 +130,7 @@ public class MatchReports extends Activity implements NavigationView.OnNavigatio
             startActivity(startStart);
 
         } else if (id == R.id.newGame) {
-            Intent startNewGame = new Intent(MatchReports.this, MatchReports.class);
+            Intent startNewGame = new Intent(MatchReports.this, NewGame.class);
             startActivity(startNewGame);
 
 
@@ -147,6 +147,10 @@ public class MatchReports extends Activity implements NavigationView.OnNavigatio
             mAuth.signOut();
             Intent start = new Intent(MatchReports.this, MainActivity.class);
             startActivity(start);
+        } else if (id == R.id.Forum){
+            Intent startForum = new Intent(MatchReports.this, Forum.class);
+            startActivity(startForum);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

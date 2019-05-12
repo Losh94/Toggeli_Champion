@@ -213,6 +213,10 @@ public class Rangliste extends Activity  implements NavigationView.OnNavigationI
             mAuth.signOut();
             Intent start = new Intent(Rangliste.this, MainActivity.class);
             startActivity(start);
+        } else if (id == R.id.spielBerichte){
+            Intent startSpielBerichte = new Intent(Rangliste.this, MatchReports.class);
+            startActivity(startSpielBerichte);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

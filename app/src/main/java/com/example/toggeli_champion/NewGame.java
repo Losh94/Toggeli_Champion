@@ -195,6 +195,11 @@ public class NewGame extends Activity implements NavigationView.OnNavigationItem
             Intent start = new Intent(NewGame.this, MainActivity.class);
             startActivity(start);
         }
+        else if (id == R.id.spielBerichte){
+            Intent startSpielBerichte = new Intent(NewGame.this, MatchReports.class);
+            startActivity(startSpielBerichte);
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

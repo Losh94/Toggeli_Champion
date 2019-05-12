@@ -67,6 +67,10 @@ public class Forum extends Activity implements NavigationView.OnNavigationItemSe
             mAuth.signOut();
             Intent start = new Intent(Forum.this, MainActivity.class);
             startActivity(start);
+        }else if (id == R.id.spielBerichte){
+            Intent startSpielBerichte = new Intent(Forum.this, MatchReports.class);
+            startActivity(startSpielBerichte);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

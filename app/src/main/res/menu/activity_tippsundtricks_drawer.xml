@@ -14,6 +14,10 @@
             android:title="Neues Spiel erfassen" />
         <item
             android:onClick="onNavigationItemSelected"
+            android:id="@+id/spielBerichte"
+            android:title="Spielberichte" />
+        <item
+            android:onClick="onNavigationItemSelected"
             android:id="@+id/Rangliste"
             android:title="Rangliste" />
         <item
