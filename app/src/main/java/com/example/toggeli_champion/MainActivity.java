@@ -19,10 +19,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -125,8 +132,6 @@ public class MainActivity extends AppCompatActivity
             mAuth.signOut();
             setContentView(R.layout.login_panel);
         }
-
-
         return true;
     }
 
@@ -201,6 +206,7 @@ public class MainActivity extends AppCompatActivity
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             if (user != null){
+                                createRanglsiteDBEntry(email);
                                 signIn(email, password);
                             }
                             Toast.makeText(MainActivity.this, "Erfolgreich registriert!", Toast.LENGTH_SHORT).show();
@@ -216,6 +222,18 @@ public class MainActivity extends AppCompatActivity
                         // ...
                     }
                 });
+    }
+
+    private void createRanglsiteDBEntry(String email) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        // Add a new document with a generated id.
+        Map<String, Object> data = new HashMap<>();
+        data.put("E-Mail", email);
+        data.put("Gewonnen", 0);
+        data.put("Verloren", 0);
+
+        db.collection("Rangliste")
+                .add(data);
     }
 
 

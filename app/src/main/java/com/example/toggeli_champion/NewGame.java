@@ -19,34 +19,55 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class NewGame extends Activity {
+public class NewGame extends Activity implements NavigationView.OnNavigationItemSelectedListener{
 
     FirebaseFirestore db;
+    FirebaseAuth mauth;
     private static final String TAG = "NewGame";
     private String dataFile;
+    private String ziel;
+    private String challenger;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mauth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_newgame);
+        challenger = getIntent().getExtras().getString("challenger");
+        ziel = getIntent().getExtras().getString("ziel");
+        setPlayerOne();
         createEmptyDataBaseEntry();
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     }
 
+    private void setPlayerOne() {
+        EditText t1p1 = (EditText) findViewById(R.id.teamoneplayeronename);
+        if (ziel != null) {
+            t1p1.setText(ziel);
+        } else if (mauth.getCurrentUser() != null){
+            t1p1.setText(mauth.getCurrentUser().getEmail());
+        }
+        EditText t2p1 = (EditText) findViewById(R.id.teamtwoplayeronename);
+        if (challenger != null) {
+            t2p1.setText(challenger);
+        }
+    }
+
     private void createEmptyDataBaseEntry() {
         Map<String, Object> challenge = new HashMap<>();
         challenge.put("Players", 2);
-        challenge.put("t1p1", null);
+        challenge.put("t1p1", ziel);
         challenge.put("t1p2", null);
-        challenge.put("t2p1", null);
+        challenge.put("t2p1", challenger);
         challenge.put("t2p2", null);
         challenge.put("t1score", null);
         challenge.put("t2score", null);
@@ -98,7 +119,8 @@ public class NewGame extends Activity {
         EditText t2result = (EditText) findViewById(R.id.resulttwo);
         challenge.put("t2score", t2result.getText().toString());
         challenge.put("Timestamp", Timestamp.now());
-        challenge.put("Bestaetigt", false);
+        challenge.put("Bestaetigtt1", true);
+        challenge.put("Bestaetigtt2", false);
 
         db.collection("Spielberichte").document(dataFile)
                 .set(challenge)
@@ -138,7 +160,7 @@ public class NewGame extends Activity {
 
     public void closeActivity(View view) {
         Log.d(TAG, "Close Activity");
-        //finish();
+        finish();
     }
 
 
@@ -147,7 +169,7 @@ public class NewGame extends Activity {
 
 
 
-    /*@Override
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
@@ -172,13 +194,14 @@ public class NewGame extends Activity {
             startActivity(startNewGame);
 
         } else if(id == R.id.TippsundTricks){
-
+            Intent startTipps = new Intent(NewGame.this, TippsundTricks.class);
+            startActivity(startTipps);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }*/
+    }
 
 
 }

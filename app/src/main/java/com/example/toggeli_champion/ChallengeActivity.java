@@ -9,6 +9,8 @@ import android.util.Log;
 public class ChallengeActivity extends FragmentActivity implements ChallengeDialogFragment.NoticeDialogListener{
 
     private static final String TAG = "ChallengeActivity";
+    String challenger;
+    String ziel;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -16,8 +18,9 @@ public class ChallengeActivity extends FragmentActivity implements ChallengeDial
         // Create an instance of the dialog fragment and show it
         ChallengeDialogFragment fragment = new ChallengeDialogFragment();
         Bundle bundle = new Bundle();
-        String test = getIntent().getExtras().getString("challenger");
-        bundle.putString("challenger", getIntent().getExtras().getString("challenger"));
+        challenger = getIntent().getExtras().getString("challenger");
+        ziel = getIntent().getExtras().getString("ziel");
+        bundle.putString("challenger", challenger);
         bundle.putString("documentid", getIntent().getExtras().getString("documentid"));
         fragment.setArguments(bundle);
         fragment.show(this.getSupportFragmentManager(), "ChallengeDialog");
@@ -28,6 +31,8 @@ public class ChallengeActivity extends FragmentActivity implements ChallengeDial
         // User touched the dialog's positive button
         finish();
         Intent start = new Intent(ChallengeActivity.this, NewGame.class);
+        start.putExtra("ziel", ziel);
+        start.putExtra("challenger", challenger);
         startActivity(start);
     }
 
