@@ -105,7 +105,7 @@ public class NewGame extends Activity implements NavigationView.OnNavigationItem
         challenge.put("t1p1", t1p1.getText().toString());
         EditText t2p1 = (EditText) findViewById(R.id.teamtwoplayeronename);
         challenge.put("t2p1", t2p1.getText().toString());
-        if (selectedValue == 2131230912) {
+        if (selectedValue == 2131230915) {
             challenge.put("Players", 2);
         } else {
             challenge.put("Players", 4);
